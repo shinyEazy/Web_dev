@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>lab.submitform</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <form>
+      <div class="form-control">
+        <label> Name </label>
+        <input type="text" id="name" placeholder="Enter your name" />
+      </div>
+      <div class="form-control">
+        <label> Email </label>
+        <input type="email" id="email" placeholder="Enter your email" />
+      </div>
+      <div class="form-control">
+        <label> Age </label>
+        <input type="text" id="age" placeholder="Enter your age" />
+      </div>
+      <div class="form-control">
+        <label> Which option best describes you? </label>
+        <select name="role" id="role">
+          <option value="student">Student</option>
+          <option value="intern">Intern</option>
+          <option value="professional">Professional</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="form-control">
+        <label> Would you recommend GeeksforGeeks to a friend? </label>
+        <label for="recommed-1">
+          <input type="radio" id="recommend-1" name="recommend" />Yes
+        </label>
+        <label for="recommed-2">
+          <input type="radio" id="recommed-2" name="recommed" />No
+        </label>
+        <label for="recommed-3">
+          <input type="radio" id="recommed-3" name="recommed" />Maybe
+        </label>
+      </div>
+      <div class="form-control">
+        <label
+          >Languages and Frameworks known
+          <small>(Check all that apply)</small>
+        </label>
+        <label for="inp-1"> <input type="checkbox" name="inp" />C </label>
+        <label for="inp-2"> <input type="checkbox" name="inp" />C++ </label>
+        <label for="inp-3"> <input type="checkbox" name="inp" />C# </label>
+        <label for="inp-4"> <input type="checkbox" name="inp" />Java </label>
+        <label for="inp-5"> <input type="checkbox" name="inp" />Python </label>
+        <label for="inp-6">
+          <input type="checkbox" name="inp" />JavaScript
+        </label>
+        <label for="inp-7"> <input type="checkbox" name="inp" />React </label>
+        <label for="inp-7"> <input type="checkbox" name="inp" />Angular </label>
+        <label for="inp-7"> <input type="checkbox" name="inp" />Django </label>
+        <label for="inp-7"> <input type="checkbox" name="inp" />Spring </label>
+      </div>
+      <div class="form-control">
+        <label for="comment"> Any comments or suggestions </label>
+        <textarea name="comment" id="comment"> </textarea>
+      </div>
+      <button type="submit" value="submit">Submit</button>
+    </form>
+  </body>
+</html>

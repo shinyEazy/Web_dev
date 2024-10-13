@@ -1,0 +1,28 @@
+body {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+p,
+ul,
+ol,
+dl,
+address {
+  font-size: 24px;
+}
+
+p,
+li,
+dd,
+dt,
+address {
+  line-height: 1.5;
+}

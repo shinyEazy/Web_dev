@@ -1,0 +1,35 @@
+.tab-binhthuong {
+  background-color: #cccccc;
+  border-left: solid 1px #dcdcdc;
+  border-right: solid 1px #dcdcdc;
+  border-top: solid 1px #dddddd;
+  border-bottom: solid 0px #dddddd;
+  cursor: pointer;
+}
+
+.tab-duocchon {
+  background-color: #00ffff;
+  border-left: solid 1px #dcdcdc;
+  border-right: solid 1px #dcdcdc;
+  border-top: solid 1px #dddddd;
+  border-bottom: solid 0px #dddddd;
+  cursor: pointer;
+}
+
+.tab-default {
+  background-color: #00ffff;
+  border-left: solid 1px #dcdcdc;
+  border-right: solid 1px #dcdcdc;
+  border-top: solid 1px #dddddd;
+  border-bottom: solid 0px #dddddd;
+  cursor: pointer;
+}
+
+.tab-dechuot {
+  background-color: #fcfcfc;
+  border-left: solid 1px #dcdcdc;
+  border-right: solid 1px #dcdcdc;
+  border-top: solid 1px #dddddd;
+  border-bottom: solid 0px #dddddd;
+  cursor: pointer;
+}

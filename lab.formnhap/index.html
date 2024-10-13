@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>lab.formnhap</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <form id="form1">
+      <div>
+        <label class="newRow">Họ tên:</label>
+        <input type="text" id="name" name="name" class="TruongBatbuoc" />
+        <span id="err_name" class="Baoloi"></span>
+        <br />
+      </div>
+      <div>
+        <label class="newRow">Địa chỉ:</label>
+        <input type="text" id="address" name="address" />
+        <br />
+      </div>
+      <div>
+        <label class="newRow">Giới tính:</label>
+
+        <label class="radio-container">
+          <input type="radio" id="nam" name="gioitinh" checked="checked" /> Nam
+          <span class="checkmark"></span>
+          <span class="checkmark2"></span>
+        </label>
+
+        <label class="radio-container">
+          <input type="radio" id="nu" name="gioitinh" /> Nữ
+          <span class="checkmark"></span>
+          <span class="checkmark2"></span>
+        </label>
+        <br />
+      </div>
+      <div>
+        <label class="newRow">Ngày sinh:</label>
+        <input
+          type="text"
+          id="ngaysinh"
+          name="ngaysinh"
+          placeholder="nn/tt/nnnn"
+          class="TruongBatbuoc"
+        />
+        <span id="loi_ngaysinh" class="Baoloi"></span>
+        <br />
+      </div>
+      <div>
+        <label class="newRow">E-mail:</label>
+        <input type="text" id="email" name="email" class="TruongBatbuoc" />
+        <span id="loi_email" class="Baoloi"></span>
+        <br />
+      </div>
+      <div>
+        <label class="newRow">Điện thoại:</label>
+        <input
+          type="text"
+          id="codinh"
+          name="codinh"
+          onkeyup="javascript:DoKeyup(event, this, 'english');"
+        />
+        <br />
+      </div>
+      <div>
+        <label class="newRow">Khóa đăng ký:</label>
+
+        <label class="checkbox-container">
+          <input
+            type="checkbox"
+            id="english"
+            name="english"
+            onkeyup="javascript:DoKeyup(event, this, 'quantri');"
+          />
+          Tiếng Anh
+          <span class="checkmark"></span>
+          <span class="checkmark2"></span>
+        </label>
+
+        <label class="checkbox-container">
+          <input
+            type="checkbox"
+            id="quantri"
+            name="quantri"
+            onkeyup="javascript:DoKeyup(event, this, 'it');"
+          />
+          Quản trị
+          <span class="checkmark"></span>
+          <span class="checkmark2"></span>
+        </label>
+
+        <label class="checkbox-container">
+          <input
+            type="checkbox"
+            id="it"
+            name="it"
+            onkeyup="javascript:DoKeyup(event, this, 'username');"
+          />
+          CNTT
+          <span class="checkmark"></span>
+          <span class="checkmark2"></span>
+        </label>
+        <br />
+      </div>
+      <div>
+        <label class="newRow">Tên sử dụng:</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          class="TruongBatbuoc"
+          onkeyup="javascript:DoKeyup(event, this, 'pass');"
+        />
+        <span id="loi_username" class="Baoloi"></span>
+        <br />
+      </div>
+      <div>
+        <label class="newRow">Mật khẩu:</label>
+        <input
+          type="password"
+          id="pass"
+          name="pass"
+          class="TruongBatbuoc"
+          onkeyup="javascript:DoKeyup(event, this, 'repass');"
+        />
+        <span id="loi_pass" class="Baoloi"></span>
+        <br />
+      </div>
+      <div>
+        <label class="newRow">Gõ lại mật khẩu:</label>
+        <input
+          type="password"
+          id="repass"
+          name="repass"
+          class="TruongBatbuoc"
+          onkeyup="javascript:DoKeyup(event, this, 'ghichu');"
+        />
+        <span id="loi_repass" class="Baoloi"></span>
+        <br />
+      </div>
+      <div>
+        <label class="newRow">Ghi chú:</label>
+        <textarea id="ghichu" name="ghichu"></textarea>
+        <br />
+      </div>
+      <div>
+        <label class="newRow">&nbsp;</label>
+        <img class="preview nodisplay" src="" style="height: 200px" />
+        <br />
+      </div>
+      <div>
+        <label class="newRow">Ảnh chân dung:</label>
+        <input
+          type="file"
+          name="FileUpload1"
+          id="FileUpload1"
+          accept=".png,.jpg"
+        />
+        <br />
+      </div>
+      <div>
+        <label class="newRow">&nbsp;</label>
+        <input
+          type="button"
+          onclick="javascript:Chapnhan();"
+          value="Chấp nhận"
+        />
+        <input type="button" onclick="javascript:Boqua();" value="Bỏ qua" />
+        <br />
+      </div>
+    </form>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>
