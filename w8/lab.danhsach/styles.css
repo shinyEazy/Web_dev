@@ -1,6 +1,8 @@
 #tbl {
   border: solid 1px #000000;
   border-collapse: collapse;
+  width: 500px;
+  text-align: center;
 }
 
 #tbl td,
@@ -32,6 +34,8 @@ div.group-op-container {
   height: 30px;
 }
 
-.oddr:hover {
-  background-color: red;
+#tbl tr.evenr:hover,
+#tbl tr.oddr:hover {
+  background-color: rgb(35, 180, 35);
+  cursor: pointer;
 }

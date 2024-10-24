@@ -79,7 +79,7 @@ function Chapnhan() {
     okie = false;
   } else if (!laTenSD(document.getElementById("username").value)) {
     document.getElementById("loi_username").innerHTML =
-      "TĂªn sá»­ dá»¥ng khĂ´ng Ä‘Ăºng Ä‘á»‹nh dáº¡ng";
+      "Tên sử dụng không khả dụng";
     document.getElementById("username").focus();
     okie = false;
   }
@@ -100,7 +100,10 @@ function Chapnhan() {
       "Quý vị chưa nhập ngày sinh";
     document.getElementById("ngaysinh").focus();
     okie = false;
-  } else if (!laNgayThang(document.getElementById("ngaysinh").value)) {
+  } else if (
+    !laNgayThang(document.getElementById("ngaysinh").value) ||
+    !isValidDate(document.getElementById("ngaysinh").value)
+  ) {
     document.getElementById("loi_ngaysinh").innerHTML =
       "Ngày sinh không đúng định dạng";
     document.getElementById("ngaysinh").focus();
@@ -114,6 +117,44 @@ function Chapnhan() {
   }
 
   if (okie) document.getElementById("form1").submit();
+}
+
+function isValidDate(dateStr) {
+  const parts = dateStr.split("/");
+  if (parts.length !== 3) {
+    return false;
+  }
+
+  const day = parseInt(parts[0], 10);
+  const month = parseInt(parts[1], 10);
+  const year = parseInt(parts[2], 10);
+
+  if (isNaN(day) || isNaN(month) || isNaN(year)) {
+    return false;
+  }
+  const currentYear = new Date().getFullYear();
+  if (year < 1900 || year > currentYear) {
+    return false;
+  }
+
+  if (month < 1 || month > 12) {
+    return false;
+  }
+
+  const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+  if (
+    month === 2 &&
+    ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0)
+  ) {
+    daysInMonth[1] = 29;
+  }
+
+  if (day < 1 || day > daysInMonth[month - 1]) {
+    return false;
+  }
+
+  return true;
 }
 
 function laEmail(s) {
@@ -192,17 +233,13 @@ document.getElementById("FileUpload1").onchange = function () {
 
 document.getElementById("ngaysinh").oninput = function () {
   var value = this.value;
-
-  // Loại bỏ tất cả các ký tự không phải là số và dấu '/'
   value = value.replace(/[^0-9\/]/g, "");
 
-  // Nếu nhập đủ 2 ký tự cho ngày hoặc tháng, tự động thêm dấu "/"
   if (value.length === 2 || value.length === 5) {
     if (value.charAt(value.length - 1) !== "/") {
       value += "/";
     }
   }
 
-  // Giới hạn độ dài chuỗi ở mức 10 ký tự (dd/mm/yyyy)
   this.value = value.substring(0, 10);
 };

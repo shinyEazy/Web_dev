@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lab.calculator_v2</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="screen">
+        <div id="operation" class="operation"></div>
+        <div id="result" class="result">0</div>
+      </div>
+      <table>
+        <tbody>
+          <tr>
+            <td class="s1" onclick="clearAll()">AC</td>
+            <td class="s1" onclick="toggleSign()">+/-</td>
+            <td class="s1" onclick="percentage()">%</td>
+            <td class="s2" onclick="setOperation('÷')">÷</td>
+          </tr>
+          <tr>
+            <td onclick="appendNumber('7')">7</td>
+            <td onclick="appendNumber('8')">8</td>
+            <td onclick="appendNumber('9')">9</td>
+            <td class="s2" onclick="setOperation('×')">×</td>
+          </tr>
+          <tr>
+            <td onclick="appendNumber('4')">4</td>
+            <td onclick="appendNumber('5')">5</td>
+            <td onclick="appendNumber('6')">6</td>
+            <td class="s2" onclick="setOperation('−')">−</td>
+          </tr>
+          <tr>
+            <td onclick="appendNumber('1')">1</td>
+            <td onclick="appendNumber('2')">2</td>
+            <td onclick="appendNumber('3')">3</td>
+            <td class="s2" onclick="setOperation('+')">+</td>
+          </tr>
+          <tr>
+            <td onclick="clearEntry()">C</td>
+            <td onclick="appendNumber('0')">0</td>
+            <td onclick="appendNumber('.')">.</td>
+            <td class="s2" onclick="calculate()">=</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
