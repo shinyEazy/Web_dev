@@ -1,17 +1,17 @@
 body {
-  font-size: 28px;
+  font-size: 20px;
   font-family: sans-serif;
 }
 
-table.sortable {
+table {
   border-collapse: collapse;
 }
 
-table.sortable td {
+table td {
   border: solid 1px #000000;
 }
 
-table.sortable th {
+table th {
   background-color: #cccccc;
   border: solid 1px #000000;
 }
