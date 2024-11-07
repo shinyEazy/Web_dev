@@ -1,0 +1,25 @@
+div.section {
+  display: flex;
+}
+div.section div.left {
+  flex: 3;
+}
+div.section div.right {
+  flex: 8;
+}
+div.section div.center {
+  flex: 1;
+}
+pre {
+  padding: 20px;
+}
+pre.code {
+  border: solid 1px grey;
+}
+pre.output {
+  background-color: grey;
+}
+div.section div.right {
+  max-height: 90vh;
+  overflow: auto;
+}

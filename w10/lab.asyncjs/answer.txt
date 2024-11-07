@@ -1,0 +1,61 @@
+1. Nút "sync":
+- Mô tả: Gọi hàm sFunction() một cách đồng bộ.
+- Diễn biến:
++ Call stack: sFunction() được đẩy vào call stack, sau khi hoàn thành, nó trả về "Hello S!", tiếp theo "END" được xuất.
++ Macrotask queue và Microtask queue không có nhiệm vụ nào vì mọi tác vụ đều đồng bộ.
+
+2. Nút "settimeout":
+- Mô tả: Sử dụng setTimeout để gọi hàm sFunction() không đồng bộ với độ trễ 0ms.
+- Diễn biến:
++ Call stack: setTimeout được thực thi và hàm xử lý sự kiện của setTimeout được thêm vào macrotask queue với độ trễ nhỏ.
++ Macrotask queue: Chứa một task gọi sFunction().
++ Microtask queue: Không có nhiệm vụ nào.
++ Sau khi call stack rỗng, macrotask từ setTimeout sẽ được thực thi.
+
+3. Nút "promise":
+- Mô tả: Thực hiện hàm aFunction1() trả về một promise và sử dụng then để xử lý kết quả khi promise hoàn thành.
+- Diễn biến:
++ Call stack: aFunction1() được thực thi và trả về một promise.
++ Microtask queue: Chứa callback then khi promise hoàn thành.
++ Macrotask queue: Không có nhiệm vụ nào.
++ Sau khi call stack rỗng, microtask sẽ được thực hiện.
+
+4. Nút "async":
+
+- Mô tả: Thực hiện hàm aFunction2() với async, trả về một promise và sử dụng then để xử lý kết quả.
+- Diễn biến:
++ Call stack: aFunction2() được thực thi, trả về một promise.
++ Microtask queue: Chứa callback then khi promise hoàn thành.
++ Macrotask queue: Không có nhiệm vụ nào.
++ Sau khi call stack rỗng, microtask sẽ được thực hiện.
+
+5. Nút "await":
+- Mô tả: Sử dụng await để đợi kết quả từ aFunction1().
+- Diễn biến:
++ Call stack: Thực thi await, call stack sẽ đợi promise hoàn thành.
++ Microtask queue: Không có nhiệm vụ nào.
++ Macrotask queue: Không có nhiệm vụ nào.
++ Khi promise hoàn thành, code tiếp theo sẽ thực thi trên call stack.
+
+6. Nút "sync vs async":
+- Mô tả: Gọi aFunction1(), aFunction2() và sFunction().
+- Diễn biến:
++ Call stack: Thực thi đồng thời các promise aFunction1() và aFunction2() và hàm đồng bộ sFunction().
++ Microtask queue: Callback từ then cho hai promise aFunction1() và aFunction2().
++ Macrotask queue: Không có nhiệm vụ nào.
++ Sau khi call stack rỗng, các microtask sẽ được thực thi.
+
+7. Nút "waitall":
+- Mô tả: Đợi cả hai promise aFunction1() và aFunction2() hoàn thành với Promise.all.
+- Diễn biến:
++ Call stack: Promise.all được thực thi.
++ Microtask queue: Callback của then từ Promise.all khi cả hai promise hoàn thành.
++ Macrotask queue: Không có nhiệm vụ nào.
++ Sau khi call stack rỗng, microtask sẽ được thực thi.
+
+8. Nút "mixed":
+- Mô tả: Gọi cả setTimeout và Promise với độ ưu tiên khác nhau.
+- Diễn biến:
++ Call stack: Thực hiện các lệnh đồng bộ output("BEGIN mixed"), thiết lập setTimeout và Promise, sau đó là output("END.").
++ Microtask queue: Chứa các callback .then của Promise. Đầu tiên là Promise 1, tiếp theo là Promise 2. Sau đó, lần lượt Sub Promise 1 và Sub Promise 2 chạy, do microtask luôn ưu tiên trước macrotask.
++ Macrotask queue: Sau khi microtask hoàn tất, các callback từ setTimeout được thực thi: setTimeout 2 (0ms) chạy trước, rồi đến setTimeout 1 (10ms).
